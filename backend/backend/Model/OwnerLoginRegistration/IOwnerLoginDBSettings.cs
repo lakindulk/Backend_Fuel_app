@@ -1,6 +1,6 @@
 ﻿namespace backend.Model.OwnerRegistration
 {
-    public interface ILoginDBSettings
+    public interface IOwnerLoginDBSettings
     {
         public string CollectionName { get; set; }
         public string ConnectionString { get; set; }
