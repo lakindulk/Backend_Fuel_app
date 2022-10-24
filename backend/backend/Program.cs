@@ -1,5 +1,7 @@
 using backend.Model;
+using backend.Model.FuelTypeUpdates;
 using backend.Service;
+using backend.Service.FuelTypeUpdates;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -8,14 +10,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.Configure<FuelQueueUpdateSettings>(
-    builder.Configuration.GetSection(nameof(FuelQueueUpdateSettings))); 
+    builder.Configuration.GetSection(nameof(FuelQueueUpdateSettings)));
+
+builder.Services.Configure<FuelTypeDBSettings>(
+    builder.Configuration.GetSection(nameof(FuelTypeDBSettings)));
 
 builder.Services.AddSingleton<IFuelQueueUpdate>(sp => sp.GetRequiredService<IOptions<FuelQueueUpdateSettings>>().Value);
+builder.Services.AddSingleton<IFuelTypeDBSettings>(sp => sp.GetRequiredService<IOptions<FuelTypeDBSettings>>().Value);
 
 //same connection string for all
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("Connection:ConnectionString")));
 
 builder.Services.AddScoped<IFuelQueueUpdateService, FuelQueueUpdateService>();
+builder.Services.AddScoped<IFuelTypeUpdateService, FuelTypeUpdateService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
