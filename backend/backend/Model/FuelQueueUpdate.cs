@@ -13,5 +13,11 @@ namespace backend.Model
 
         [BsonElement("checkintime")]
         public string CheckInTime { get; set; } = String.Empty;
+
+        [BsonElement("checkouttime")]
+        public string CheckOutTime { get; set; } = String.Empty;
+
+        [BsonElement("noofliters")]
+        public string NoOfLiters { get; set; } = String.Empty;
     }
 }
