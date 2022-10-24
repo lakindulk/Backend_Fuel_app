@@ -1,6 +1,7 @@
 using backend.Model;
 using backend.Model.FuelTypeUpdates;
 using backend.Model.LoginRegistration;
+using backend.Model.UserRegistration;
 using backend.Service;
 using backend.Service.FuelTypeUpdates;
 using backend.Service.UserService;

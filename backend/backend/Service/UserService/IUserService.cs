@@ -1,4 +1,5 @@
-﻿using backend.Model.UserRegistration;
+﻿using backend.Model.LoginRegistration;
+using backend.Model.UserRegistration;
 namespace backend.Service.UserService
 {
     public interface IUserService

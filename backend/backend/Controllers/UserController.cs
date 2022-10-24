@@ -1,4 +1,4 @@
-﻿using backend.Model.UserRegistration;
+﻿using backend.Model.LoginRegistration;
 using backend.Service.UserService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,8 +9,8 @@ namespace backend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-
         private readonly IUserService userTypeService;
+
         public UserController(IUserService userService)
         {
             this.userTypeService = userService;
@@ -39,22 +39,22 @@ namespace backend.Controllers
 
         // POST api/<userTypeService>
         [HttpPost]
-        public ActionResult<UserRegistration> Post([FromBody] UserRegistration userTypeUpdate)
+        public ActionResult<UserRegistration> Post([FromBody] UserRegistration usertypeUpdate)
         {
-            userTypeService.Create(userTypeUpdate);
-            return CreatedAtAction(nameof(Get), new { id = userTypeUpdate.Id }, userTypeUpdate);
+            userTypeService.Create(usertypeUpdate);
+            return CreatedAtAction(nameof(Get), new { id = usertypeUpdate.Id }, usertypeUpdate);
         }
 
         // PUT api/<userTypeService>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] UserRegistration userTypeUpdate)
+        public ActionResult Put(string id, [FromBody] UserRegistration usertypeUpdate)
         {
             var existingusertype = userTypeService.Get(id);
             if (existingusertype == null)
             {
                 return NotFound($"Supplier with id = {id} not found");
             }
-            userTypeService.Update(id, userTypeUpdate);
+            userTypeService.Update(id, usertypeUpdate);
             return NoContent();
 
 
