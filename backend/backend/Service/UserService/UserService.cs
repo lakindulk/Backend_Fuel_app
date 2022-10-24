@@ -1,4 +1,5 @@
-﻿using backend.Model.UserRegistrations;
+﻿using backend.Model.LoginRegistration;
+using backend.Model.UserRegistration;
 
 using MongoDB.Driver;
 
@@ -19,7 +20,7 @@ namespace backend.Service.UserService
         public UserRegistration Create(UserRegistration userRegistration)
         {
             _UserRegistration.InsertOne(userRegistration);
-            return UserRegistration;
+            return userRegistration;
         }
 
         public List <UserRegistration> Get()
