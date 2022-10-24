@@ -3,6 +3,7 @@ namespace backend.Service.UserService
 {
     public interface IUserService
     {
+
         List<UserRegistration> Get();
         UserRegistration Get(string Id);
         UserRegistration Create(
