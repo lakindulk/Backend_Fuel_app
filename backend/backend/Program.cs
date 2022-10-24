@@ -2,9 +2,11 @@ using backend.Model;
 using backend.Model.FuelTypeUpdates;
 using backend.Model.LoginRegistration;
 using backend.Model.UserRegistration;
+using backend.Model.OwnerRegistration;
 using backend.Service;
 using backend.Service.FuelTypeUpdates;
 using backend.Service.UserService;
+using backend.Service.OwnerService;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -21,9 +23,13 @@ builder.Services.Configure<FuelTypeDBSettings>(
 builder.Services.Configure<LoginDBSettings>(
     builder.Configuration.GetSection(nameof(LoginDBSettings)));
 
+builder.Services.Configure<OwnerLoginDBSettings>(
+    builder.Configuration.GetSection(nameof(OwnerLoginDBSettings)));
+
 builder.Services.AddSingleton<IFuelQueueUpdate>(sp => sp.GetRequiredService<IOptions<FuelQueueUpdateSettings>>().Value);
 builder.Services.AddSingleton<IFuelTypeDBSettings>(sp => sp.GetRequiredService<IOptions<FuelTypeDBSettings>>().Value);
 builder.Services.AddSingleton<ILoginDBSettings>(sp => sp.GetRequiredService<IOptions<LoginDBSettings>>().Value);
+builder.Services.AddSingleton<IOwnerLoginDBSettings>(sp => sp.GetRequiredService<IOptions<OwnerLoginDBSettings>>().Value);
 
 //same connection string for all
 builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("Connection:ConnectionString")));
@@ -31,6 +37,7 @@ builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configu
 builder.Services.AddScoped<IFuelQueueUpdateService, FuelQueueUpdateService>();
 builder.Services.AddScoped<IFuelTypeUpdateService, FuelTypeUpdateService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IOwnerService, OwnerService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
