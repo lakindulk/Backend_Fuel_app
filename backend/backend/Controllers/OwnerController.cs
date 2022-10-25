@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using backend.Model.OwnerLoginRegistration;
+using backend.Service.OwnerService;
+using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OwnerController
+    public class OwnerController : ControllerBase
     {
         private readonly IOwnerService ownerTypeService;
 
-        public UserController(IOwnerService ownerService)
+        public OwnerController(IOwnerService ownerService)
         {
             this.ownerTypeService = ownerService;
         }
@@ -33,7 +32,7 @@ namespace backend.Controllers
             var userTypeUpdate = ownerTypeService.Get(id);
             if (userTypeUpdate == null)
             {
-                return NotFound($"supplier with id = {id} not found");
+                return NotFound($"customer with id = {id} not found");
             }
             return userTypeUpdate;
         }
@@ -77,5 +76,4 @@ namespace backend.Controllers
         }
 
     }
-}
 }
