@@ -32,6 +32,11 @@ namespace backend.Service.FuelTypeUpdates
             return _fuelTypeUpdate.Find(fuelTypeUpdate => fuelTypeUpdate.Id == id).FirstOrDefault();
         }
 
+        public FuelTypeUpdate GetStations(string id)
+        {
+            return _fuelTypeUpdate.Find(fuelTypeUpdate => fuelTypeUpdate.StationID == id).FirstOrDefault();
+        }
+
         public void Remove(string id)
         {
             _fuelTypeUpdate.DeleteOne(FuelTypeUpdate => FuelTypeUpdate.Id == id);

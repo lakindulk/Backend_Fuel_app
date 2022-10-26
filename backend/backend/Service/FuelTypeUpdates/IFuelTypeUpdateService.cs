@@ -5,6 +5,7 @@ namespace backend.Service.FuelTypeUpdates
     {
         List<FuelTypeUpdate> Get();
         FuelTypeUpdate Get(string Id);
+        FuelTypeUpdate GetStations(string Id);
         FuelTypeUpdate Create(
             FuelTypeUpdate fuelTypeUpdate);
         void Update(string Id, FuelTypeUpdate fuelTypeUpdate);
