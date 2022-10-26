@@ -19,5 +19,14 @@ namespace backend.Model
 
         [BsonElement("noofliters")]
         public string NoOfLiters { get; set; } = String.Empty;
+
+        [BsonElement("stationId")]
+        public string StationId { get; set; } = String.Empty;
+
+        [BsonElement("vehicleType")]
+        public string VehicleType { get; set; } = String.Empty;
+
+        [BsonElement("fuelType")]
+        public string FuelType { get; set; } = String.Empty;
     }
 }
