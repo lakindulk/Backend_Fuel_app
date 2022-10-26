@@ -15,9 +15,7 @@ namespace backend.Model.FuelTypeUpdates
         [BsonElement("stationID")]
         public string StationID { get; set; } = string.Empty;
 
-        [BsonElement("capacity")]
-        public string Capacity { get; set; } = string.Empty;
-
+    
         [BsonElement("arrivaltime")]
         public string ArrivalTime { get; set; } = string.Empty;
 
@@ -35,6 +33,18 @@ namespace backend.Model.FuelTypeUpdates
 
         [BsonElement("nooftwoweel")]
         public string NoOfTwoweel { get; set; } = string.Empty;
+
+        [BsonElement("petrol92")]
+        public string petrol92 { get; set; } = string.Empty;
+
+        [BsonElement("petrol95")]
+        public string petrol95 { get; set; } = string.Empty;
+
+        [BsonElement("diesel")]
+        public string diesel { get; set; } = string.Empty;
+
+        [BsonElement("superDiesel")]
+        public string superDiesel { get; set; } = string.Empty;
 
         [BsonElement("finishtime")]
         public string FinishTime { get; set; } = string.Empty;

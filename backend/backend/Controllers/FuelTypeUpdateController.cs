@@ -36,6 +36,20 @@ namespace backend.Controllers
             return fueltypeupdate;
         }
 
+        // GET api/<FuelTypeUpdate>/5
+        [HttpGet("getStations/{id}")]
+        public ActionResult<FuelTypeUpdate> GetStations(string id)
+        {
+
+
+            var fueltypeupdate = fuelTypeUpdateService.GetStations(id);
+            if (fueltypeupdate == null)
+            {
+                return NotFound($"supplier with id = {id} not found");
+            }
+            return fueltypeupdate;
+        }
+
         // POST api/<FuelTypeUpdate>
         [HttpPost]
         public ActionResult<FuelTypeUpdate> Post([FromBody] FuelTypeUpdate fuelTypeUpdate)
