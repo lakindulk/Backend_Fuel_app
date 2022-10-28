@@ -6,6 +6,7 @@ namespace backend.Service
     {
         List<FuelQueueUpdate> Get();
         FuelQueueUpdate Get(string id);
+        FuelQueueUpdate GetUserQueue(string id);
         FuelQueueUpdate Create(FuelQueueUpdate fuelQueue);
         void Update(string id,FuelQueueUpdate fuelQueue);
         void Remove(string id);

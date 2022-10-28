@@ -36,6 +36,17 @@ namespace backend.Controllers
             return queue;
         }
 
+        // GET api/<FuelQueueUpdateController>/5
+        [HttpGet("userQ/{id}")]
+        public ActionResult<FuelQueueUpdate> GetUserQueueDetails(string id)
+        {
+            var queue = queueService.GetUserQueue(id);
+            if (queue == null)
+            {
+                return NotFound($"customer with id = {id} not found");
+            }
+            return queue;
+        }
         // POST api/<FuelQueueUpdateController>
         [HttpPost]
         public ActionResult<FuelQueueUpdate> Post([FromBody] FuelQueueUpdate value)
