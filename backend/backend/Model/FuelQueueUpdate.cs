@@ -28,5 +28,8 @@ namespace backend.Model
 
         [BsonElement("fuelType")]
         public string FuelType { get; set; } = String.Empty;
+
+        [BsonElement("userid")]
+        public string Userid { get; set; } = String.Empty;
     }
 }

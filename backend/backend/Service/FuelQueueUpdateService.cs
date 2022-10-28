@@ -28,6 +28,11 @@ namespace backend.Service
             return _queue.Find(queue => queue.Id == id).FirstOrDefault();
         }
 
+        public FuelQueueUpdate GetUserQueue(string id)
+        {
+            return _queue.Find(queue => queue.Userid == id && queue.CheckOutTime == "string").FirstOrDefault();
+        }
+
         public void Remove(string id)
         {
             _queue.DeleteOne(queue => queue.Id == id);
